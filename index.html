@@ -1,0 +1,883 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hands-on guide for adding and updating employees with the Nmbrs API">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/">
+      
+      
+      
+        <link rel="next" href="getting-started/understanding-rest-apis/">
+      
+      
+      <link rel="icon" href="assets/images/nmbrs-main-logo-icon-2.webp">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Partners Portal</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Lato";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nmbrs-partner-portal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Partners Portal" class="md-header__button md-logo" aria-label="Partners Portal" data-md-component="logo">
+      
+  <img src="assets/images/nmbrs.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Partners Portal
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Partners Portal" class="md-nav__button md-logo" aria-label="Partners Portal" data-md-component="logo">
+      
+  <img src="assets/images/nmbrs.png" alt="logo">
+
+    </a>
+    Partners Portal
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-0-documenting-my-thought-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 0 — Documenting my thought process
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 0 — Documenting my thought process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-i-chose-this-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why I chose this solution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenges-faced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges faced
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges faced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-id-do-differently" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I’d do differently
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-i-behave-in-real-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      How I behave in real projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How I behave in real projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#questions-i-would-ask-the-product-owner-or-a-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Questions I would ask the Product Owner or a developer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-create-a-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1 - Create a guide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-roadmap-to-reduce-getting-started-support-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2 — Roadmap to reduce “getting started” support load
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/understanding-rest-apis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Understanding REST APIs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/how-to-authenticate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to authenticate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/how-to-integrate-your-hris/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to integrate your HRIS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="getting-started/http-status-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HTTP status codes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integration Guides
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Integration Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide/manage-employees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing Employees
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-0-documenting-my-thought-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 0 — Documenting my thought process
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 0 — Documenting my thought process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-i-chose-this-solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why I chose this solution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenges-faced" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges faced
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenges faced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-id-do-differently" class="md-nav__link">
+    <span class="md-ellipsis">
+      What I’d do differently
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-i-behave-in-real-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      How I behave in real projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How I behave in real projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#questions-i-would-ask-the-product-owner-or-a-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Questions I would ask the Product Owner or a developer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-create-a-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1 - Create a guide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-roadmap-to-reduce-getting-started-support-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2 — Roadmap to reduce “getting started” support load
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="nmbrs-partner-portal">Nmbrs Partner Portal<a class="headerlink" href="#nmbrs-partner-portal" title="Link to this heading">#</a></h1>
+<p>This documentation site is a Proof of Concept of how Nmbrs could provide a dedicated user experience for partner developers that work on HRIS integrations and make the API handling easier through guides, use cases and best practices. </p>
+<p>To do this, I built an MkDocs-based portal to illustrate how documentation could evolve into a real <strong>Partner Portal</strong>.</p>
+<hr />
+<h2 id="part-0-documenting-my-thought-process">Part 0 — Documenting my thought process<a class="headerlink" href="#part-0-documenting-my-thought-process" title="Link to this heading">#</a></h2>
+<h3 id="why-i-chose-this-solution">Why I chose this solution<a class="headerlink" href="#why-i-chose-this-solution" title="Link to this heading">#</a></h3>
+<p>I wanted the partner developers to feel accompanied through every step of their integration journey. </p>
+<p>A portal that consolidates partner content in one location that is (ideally) designed with an approachable look and feel can:
+  - Make the user feel like they know where they're going and not wasting time looking for information in different portals and sources
+  - Enable partners to easily browse guides by use case
+  - Fill information gaps by providing additional tips and best practices
+  - Go beyond endpoint reference by including real-life applications</p>
+<p>I used MkDocs (Material) because I am familiar with the tool to prototype quickly and use components such as: tabs, admonitions, search, dark mode, code blocks, buttons.</p>
+<h3 id="challenges-faced">Challenges faced<a class="headerlink" href="#challenges-faced" title="Link to this heading">#</a></h3>
+<ul>
+<li>Understanding the product, user, end user and the integration workflow. I had to learn the basics of a new system in a short amount of time. But this is a part of the job.</li>
+<li>I spent a good amount of time trying to access the API Mock Server so I could test the APIs. I believe their solution is no longer maintained, because the environment that I was meant to see in Postman no longer seemed to exist. To save time I opted for using the default payloads and responses documented in the API reference. </li>
+<li>Documentation was spread out across different sources. It was hard to follow a coherent path, I had to look for information on several websites and pages. </li>
+</ul>
+<h4 id="what-id-do-differently">What I’d do differently<a class="headerlink" href="#what-id-do-differently" title="Link to this heading">#</a></h4>
+<ul>
+<li>I would've brainstormed with my (in this case, imaginary) team to help me decide on priorities. I had several ideas and at times got carried away. Having people to bounce ideas off of helps me make decisions faster.  </li>
+</ul>
+<h3 id="how-i-behave-in-real-projects">How I behave in real projects<a class="headerlink" href="#how-i-behave-in-real-projects" title="Link to this heading">#</a></h3>
+<ul>
+<li>First I sync with a Product Owner to ensure I have:<ul>
+<li>Test access to the feature</li>
+<li>A list of limitations, if any</li>
+<li>An overview of a practical use case for the feature</li>
+</ul>
+</li>
+<li>Define if all supporting content already exists, and if it doesn't, create it</li>
+<li>I test the feature and document as I go</li>
+<li>Give feedback on potential bugs</li>
+<li>Identify potential sources of difficulty or errors that the user might face and prepare for that - include warnings and tips in the documentation</li>
+<li>Keep in constant contact with stakeholders in case I have any questions</li>
+<li>Personally review the finished documentation and submit it for peer review</li>
+</ul>
+<h4 id="questions-i-would-ask-the-product-owner-or-a-developer">Questions I would ask the Product Owner or a developer<a class="headerlink" href="#questions-i-would-ask-the-product-owner-or-a-developer" title="Link to this heading">#</a></h4>
+<p>I had a couple questions specific to the API while documenting, I decided to share them to give you an idea of what questions I'm likely to ask a Product Owner. </p>
+<ul>
+<li>Is it possible to create users in bulk via the API? I imagine that for a data sync use case, it would be useful if the partner developer could add many users at the same time. </li>
+<li>Are there permission requirements for API access and integrations? I could not find this information.</li>
+</ul>
+<hr />
+<h2 id="part-1-create-a-guide">Part 1 - Create a guide<a class="headerlink" href="#part-1-create-a-guide" title="Link to this heading">#</a></h2>
+<p>Find the result of this exercise in the <a href="/guide/manage-employees/">Managing Employees</a> documentation page.</p>
+<hr />
+<h2 id="part-2-roadmap-to-reduce-getting-started-support-load">Part 2 — Roadmap to reduce “getting started” support load<a class="headerlink" href="#part-2-roadmap-to-reduce-getting-started-support-load" title="Link to this heading">#</a></h2>
+<p><strong>Goal:</strong> Enable partners to self-serve by turning isolated endpoints into <strong>scenario-driven guides</strong> (with runnable examples, a new content structure and troubleshooting).</p>
+<ol>
+<li>
+<p><strong>Capitalize on existing content (Week 1)</strong> - Create guides that group all content distributed across different sources in one place. This is existing content that can be adapted and pages that will include explanations of global API concepts. The specifications for the last can easily be found in different online sources. Find some page ideas under the <strong>Getting Started</strong> menu entry of this website. </p>
+<p><strong>Impact:</strong> Centralizing guides that are a requirement to use the API creates a single source of truth and reduces time - Technical Writers can link to these guides in the requirements and only have to update the source. </p>
+</li>
+<li>
+<p><strong>Create an interactive prototype (Week 1)</strong> - Create a temporary repository and website (with open source tools like Mkdocs) to illustrate the idea and have a space partners can test the content (refer to step 4). </p>
+<p><strong>Impact:</strong> allows users to imagine a different content structure, tone and a different way of interacting with APIs, separate from the existing documentation to avoid biases. </p>
+</li>
+<li>
+<p><strong>Contact Support (Week 1)</strong> - Concurrently gather data from support team to define a list of the 5-10 most asked questions and issues encountered when integrating.</p>
+<p><strong>Impact:</strong> start gathering real user data as soon as possible so we have enough to animate the iteration phase (step 5 of the roadmap)</p>
+</li>
+<li>
+<p><strong>User Tests (Week 2)</strong> - Find one or more partners to test the prototype docs end-to-end and carry out a user test to collect feedback. Have different stakeholders test the prototype and give feedback as well.</p>
+<p><strong>Impact:</strong> seeing how the user interacts with the content in real-time and getting fresh, honest feedback.</p>
+</li>
+<li>
+<p><strong>Current state assessment (Week 3)</strong> - List all features approved and suggested by users and cross-reference with the list of features and components of the content platform currently used. If too many differences are identified, set up a meeting with front team (see the last step).</p>
+<p><strong>Impact:</strong> understand the limitations and/or advantages of current content platform and assess how long it would take to implement new content structure. </p>
+</li>
+<li>
+<p><strong>Apply and Integrate (Weeks 4-5)</strong> - Transform the data collected during steps 3, 4 and 5 into action items for content iteration, improvement and expanding the content to document new use-cases. Ideally we integrate the content created for the prototype and any new content into the existing documentation - adapting what can be adapted and getting creative when it is not possible.</p>
+<p><strong>Impact:</strong> An amalgamation of all impacts up to now. </p>
+</li>
+<li>
+<p><strong>Frontend Team Collaboration</strong> - Contact the Frontend team about the possibility of creating a dedicated partner portal website. Show them the prototype and assess if a similar, but more secure and scalable solution is possible and when. Create a new roadmap if the answer is yes. If it is no, put the project aside until next opportunity and continue brainstorming on how to creatively integrate user feedback into existing content platform. </p>
+</li>
+<li>
+<p><strong>Continuous iterations</strong> - Repeat steps 3, 4 and 6 <em>ad infinitum</em>.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": ["content.tabs.link", "content.code.copy", "navigation.instant", "navigation.tracking", "search.suggest", "search.highlight", "toc.follow"], "search": "assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

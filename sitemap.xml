@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://example.com/</loc>
+         <lastmod>2025-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/getting-started/</loc>
+         <lastmod>2025-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/getting-started/how-to-authenticate/</loc>
+         <lastmod>2025-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/getting-started/how-to-integrate-your-hris/</loc>
+         <lastmod>2025-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/getting-started/http-status-codes/</loc>
+         <lastmod>2025-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/getting-started/understanding-rest-apis/</loc>
+         <lastmod>2025-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/guide/</loc>
+         <lastmod>2025-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/guide/manage-employees/</loc>
+         <lastmod>2025-09-16</lastmod>
+    </url>
+</urlset>
